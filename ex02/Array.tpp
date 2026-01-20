@@ -8,7 +8,7 @@ Array<T>::Array(): elements(NULL), array_size(0)
 }
 
 template<typename T>
-Array<T>::Array(unsigned int array_size): elements(new T[array_size]), array_size(array_size)
+Array<T>::Array(unsigned int n): elements(new T[n]), array_size(n)
 {
 	return ;
 }
@@ -37,7 +37,7 @@ Array<T>	&Array<T>::operator=(const Array &other)
 }
 
 template<typename T>
-T	&Array<T>::operator[](unsigned int	index)
+T	&Array<T>::operator[](unsigned int index)
 {
 	if (index >= array_size)
 		throw std::out_of_range("Index out of bounds!");

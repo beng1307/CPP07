@@ -3,23 +3,28 @@
 
 int main( void )
 {
-	int a = 2;
-	int b = 3;
+	int 		intI = 1;
+	int 		intII = 2;
+	std::string stringI = "Hello World";
+	std::string stringII = "Lorem Ipsum";
+
+///////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl;
+
+
+	::swap( intI, intII );
+
+	std::cout << "intI = " << intI << ", intII = " << intII << std::endl;
+	std::cout << "min(intI,intII) = " << ::min(intI, intII) << std::endl;
+	std::cout << "max(intI,intII) = " << ::max(intI, intII) << std::endl;
+
+///////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl;
+
 	
-	::swap( a, b );
-	
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	
-	::swap(c, d);
-	
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	
-	return 0;
+	::swap(stringI, stringII);
+
+	std::cout << "stringI = " << stringI << ", stringII = " << stringII << std::endl;
+	std::cout << "min(stringI, stringII) = " << ::min(stringI, stringII) << std::endl;
+	std::cout << "max(stringI, stringII) = " << ::max(stringI, stringII) << std::endl;
 }

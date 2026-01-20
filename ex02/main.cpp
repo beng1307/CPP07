@@ -4,74 +4,71 @@
 
 int main()
 {
-    std::cout << "=== Testing Default Constructor ===" << std::endl;
-    {
-        Array<int> empty;
-        std::cout << "Empty array size: " << empty.size() << std::endl;
-    }
+	Array <int>empty;
 
-    std::cout << "\n=== Testing Parameterized Constructor ===" << std::endl;
-    {
-        Array<int> arr(5);
-        std::cout << "Array size: " << arr.size() << std::endl;
-        std::cout << "Array elements (initialized to 0): ";
-        for (unsigned int i = 0; i < arr.size(); i++)
-            std::cout << arr[i] << " ";
-        std::cout << std::endl;
-    }
+	std::cout << "Empty array size: " << empty.size() << std::endl;
 
-    std::cout << "\n=== Testing Copy Constructor ===" << std::endl;
-    {
-        Array<int> arr1(3);
-        arr1[0] = 10;
-        arr1[1] = 20;
-        arr1[2] = 30;
-        
-        Array<int> arr2(arr1);
-        std::cout << "Original: ";
-        for (unsigned int i = 0; i < arr1.size(); i++)
-            std::cout << arr1[i] << " ";
-        std::cout << "\nCopy: ";
-        for (unsigned int i = 0; i < arr2.size(); i++)
-            std::cout << arr2[i] << " ";
-        std::cout << std::endl;
-        
-        arr2[0] = 99;
-        std::cout << "After modifying copy[0] = 99:" << std::endl;
-        std::cout << "Original[0]: " << arr1[0] << std::endl;
-        std::cout << "Copy[0]: " << arr2[0] << std::endl;
-    }
+///////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl;	
 
-    std::cout << "\n=== Testing Assignment Operator ===" << std::endl;
-    {
-        Array<int> arr1(3);
-        arr1[0] = 1;
-        arr1[1] = 2;
-        arr1[2] = 3;
-        
-        Array<int> arr2;
-        arr2 = arr1;
-        std::cout << "Size after assignment: " << arr2.size() << std::endl;
-    }
 
-    std::cout << "\n=== Testing Out of Bounds Access ===" << std::endl;
-    {
-        Array<int> arr(3);
-        try {
-            std::cout << "Accessing index 5 in array of size 3..." << std::endl;
-            arr[5] = 100;
-        } catch (const std::exception &e) {
-            std::cout << "Exception caught: " << e.what() << std::endl;
-        }
-    }
+	Array <int>int_array((unsigned int)5);
 
-    std::cout << "\n=== Testing Different Types ===" << std::endl;
-    {
-        Array<std::string> strArr(2);
-        strArr[0] = "Hello";
-        strArr[1] = "World";
-        std::cout << "String array: " << strArr[0] << " " << strArr[1] << std::endl;
-    }
+	std::cout << "Array size: " << int_array.size() << std::endl;
+	for (size_t i = 0; i < int_array.size(); i++)
+		std::cout << int_array[i] << " ";
+	std::cout << std::endl;
 
-    return 0;
+///////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl;	
+
+
+	int *a = new int();
+
+	std::cout << *a << std::endl;
+	delete a;
+
+///////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl;	
+
+
+	Array <int>testI(3);
+	testI[0] = 1;
+	testI[1] = 2;
+	testI[2] = 3;
+	Array <int>testII(testI);
+	testII[0] = 4;
+	testII[1] = 5;
+	testII[2] = 6;
+	Array <int>testIII = testI;
+	testIII[0] = 7;
+	testIII[1] = 8;
+	testIII[2] = 9;
+	for (size_t i = 0; i < testI.size(); i++)
+		std::cout << testI[i] << " ";
+	std::cout << std::endl;
+	for (size_t i = 0; i < testI.size(); i++)
+		std::cout << testII[i] << " ";
+	std::cout << std::endl;
+	for (size_t i = 0; i < testI.size(); i++)
+		std::cout << testIII[i] << " ";
+	std::cout << std::endl;	
+	
+///////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl;
+
+
+	try
+	{
+		std::cout << int_array[10] << std::endl;
+	}
+	catch (const std::out_of_range &e)
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	}
+
+///////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl;
+
+	std::cout << int_array.size() << std::endl;
 }
