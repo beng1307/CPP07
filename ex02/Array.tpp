@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <stdexcept>
 
 template<typename T>
 Array<T>::Array(): elements(NULL), array_size(0)
@@ -33,6 +34,14 @@ Array<T>	&Array<T>::operator=(const Array &other)
 			elements[i] = other.elements[i];
 	}
 	return (*this);
+}
+
+template<typename T>
+T	&Array<T>::operator[](unsigned int	index)
+{
+	if (index >= array_size)
+		throw std::out_of_range("Index out of bounds!");
+	return (elements[index]);
 }
 
 template<typename T>

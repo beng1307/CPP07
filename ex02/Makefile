@@ -1,12 +1,12 @@
 COMPILE = c++ -g -Wall -Wextra -Werror -std=c++98 -fPIE
 NAME = array
-SRCS = main.cpp Array.tpp
+SRCS = main.cpp
 OBJS_FOLDER = obj
 OBJS = $(SRCS:%.cpp=$(OBJS_FOLDER)/%.o)
-HEADERS = iter.hpp
-
+HEADERS = Array.hpp Array.tpp
+		
 $(NAME): $(OBJS)
-	$(COMPILE) $(OBJS) -o $(NAME)
+	$(COMPILE) $(OBJS) -o $(NAME)	
 
 $(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(OBJS_FOLDER)
